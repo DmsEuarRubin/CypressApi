@@ -1,2 +1,1 @@
-const cypress = require('cypress');
 

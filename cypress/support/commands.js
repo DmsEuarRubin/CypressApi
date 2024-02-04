@@ -1,4 +1,4 @@
-Cypress.Commands.add('creation', (name, gender, email, status) => {
+Cypress.Commands.add('createUser', (name, gender, email, status) => {
     cy.request({
         url: "/",
         method: 'POST',
@@ -13,24 +13,18 @@ Cypress.Commands.add('creation', (name, gender, email, status) => {
         }
     })
 })
-Cypress.Commands.add('getting', (randomDate, response, ID) => {
-    ID = response.body.id;
-     expect(response.body.name).to.eq(`VAR${randomDate}VAR`);
-     expect(response.body.email).to.eq(`test${randomDate}@fakemail.am`);
+Cypress.Commands.add('getUser', (resID) => {
      cy.request({
-         url: `/${response.body.id}`,
+         url: `/${resID}`,
          method: 'GET',
         headers: {
             "Authorization": Cypress.env("token")
         }
     })
 })
-Cypress.Commands.add('deleteing', (randomDate, response, ID) => {
-    expect(response.body.id, ID);
-            expect(response.body.name).to.eq(`VAR${randomDate}VAR`);
-            expect(response.body.email).to.eq(`test${randomDate}@fakemail.am`);
+Cypress.Commands.add('removeUser', (resID) => {
             cy.request({
-                url: `/${response.body.id}`,
+                url: `/${resID}`,
                 method: 'DELETE',
                 headers: {
                     "Authorization": Cypress.env("token")

@@ -1,5 +1,5 @@
 {
-  "name": "VAR${randomDate}VAR",
+  "name": "${randomDate}",
   "gender": "male",
   "email": "test${randomDate}@fakemail.am",
   "status": "active"
